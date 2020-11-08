@@ -2,8 +2,9 @@
 #include <math.h>
 #include <string.h>
 /*
-Faça um programa que leia 2 conujuntos (A e B) válidos, sem elementos repetidos, cada um com no
-mínimo 1 e no máximo 100 elementos, e imprima A ∪ B e A ∩ B.
+Faça um algoritmo que aloque dois vetores V1 e V2 com o tamanho de cada entrada q1 e q2, receba os
+q1 valores no vetor V1 e os q2 valores no vetor V e construa um terceiro vetor, Vr, com a intercalação dos
+vetores V1 e V2 de forma ordenada.
 */
 
 int *ordena(int *nums, int qntd)
