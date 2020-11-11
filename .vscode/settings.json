@@ -18,6 +18,8 @@
   "files.associations": {
     "*.js": "javascript",
     "array": "c",
-    "random": "c"
+    "random": "c",
+    "hash_map": "c",
+    "algorithm": "c"
   }
 }
