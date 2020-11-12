@@ -5,10 +5,10 @@
   e a posição (índice do vetor) da sua primeira ocorrência
 */
 
-int oftenOccurs(int *elements, int el)
+int oftenOccurs(int *elements, int el, int range)
 {
   int i, ocurrence = 0;
-  for (i = 0; elements[i] != -1; i++)
+  for (i = 0; i < range; i++)
   {
     if (elements[i] == el)
       ocurrence++;
@@ -19,7 +19,7 @@ int oftenOccurs(int *elements, int el)
 int main()
 {
   int valores[10000];
-  int maiorValor, indice;
+  int maiorValor = -1, indice;
   int N, QNTD;
   int i = 0, j;
   scanf("%d", &QNTD);
@@ -27,20 +27,18 @@ int main()
   while (i < QNTD)
   {
     scanf("%d", &N);
-    if (N >= 0 && N <= 10)
-    {
-      if (N > maiorValor)
-      {
-        maiorValor = N;
-        indice = i;
-      }
-      valores[i] = N;
-      i++;
-    }
-  }
-  valores[i] = -1;
 
-  printf("Nota %d, %d vezes\n", valores[i - 1], oftenOccurs(valores, valores[i - 1]));
-  printf("Nota %d, indice %d\n", maiorValor, indice);
+    if (N > maiorValor)
+    {
+      maiorValor = N;
+      indice = i;
+    }
+    valores[i] = N;
+
+    i++;
+  }
+
+  printf("Nota %d, %d vezes\nNota %d, indice %d\n", valores[i - 1], oftenOccurs(valores, valores[i - 1], i), maiorValor, indice);
+
   return 0;
 }
