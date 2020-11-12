@@ -144,7 +144,7 @@ int main()
   }
 
   printUnique(allElements);
-  printEqual(elementsA, elementsB);
+  printEqual(elementsB, elementsA);
 
   return 0;
 }
