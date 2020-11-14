@@ -20,6 +20,7 @@
     "array": "c",
     "random": "c",
     "hash_map": "c",
-    "algorithm": "c"
+    "algorithm": "c",
+    "limits": "c"
   }
 }
