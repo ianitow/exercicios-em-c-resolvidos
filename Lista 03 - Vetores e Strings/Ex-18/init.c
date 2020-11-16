@@ -27,11 +27,11 @@ int main()
         {
           aux2 = aux % 10;
           aux = aux / 10;
-          printf("%d", aux2);
+          printf(" %d", aux2);
         }
       }
+      printf("\n");
     }
-    printf("\n");
   }
 
   return 0;
