@@ -5,7 +5,7 @@ void removeLowers(int *nums, int qntd, int range)
   int removeds[qntd];
   int min;
   int indice;
-  int i = 0, j = 0;
+  int i = 0;
 
   while (qntd)
   {
@@ -22,7 +22,6 @@ void removeLowers(int *nums, int qntd, int range)
     }
     nums[indice] = -1;
     qntd--;
-    j++;
   }
   for (i = 0; i < range; i++)
   {
