@@ -44,7 +44,7 @@ int isElementInside(int *array, int el, int range)
 
 int main()
 {
-  int N, i, value;
+  int N, i, j = 0, value;
   int *result;
   scanf("%d", &N);
 
@@ -57,15 +57,19 @@ int main()
 
     v[i] = value;
   }
-  result = ordena(v, N);
+
   for (i = 0; i < N; i++)
   {
-    if (isElementInside(printed, result[i], N) == 0)
+    if (isElementInside(printed, v[i], j) == 0)
     {
-      printf("%d\n", result[i]);
-      printed[i] = result[i];
+      printed[j] = v[i];
+      j++;
     }
   }
-
+  result = ordena(printed, j);
+  for (i = 0; i < j; i++)
+  {
+    printf("%d\n", printed[i]);
+  }
   return 0;
 }
