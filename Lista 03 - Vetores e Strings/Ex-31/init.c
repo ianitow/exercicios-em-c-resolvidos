@@ -36,12 +36,17 @@ void coutingSort(int *array, int N)
 }
 int main()
 {
-  int N = 0, i;
+  int N = -1, i;
   int value;
 
-  do
+  while (1)
   {
     scanf("%d", &N);
+    if (N == 0)
+    {
+      break;
+    }
+
     if (N >= 1 && N <= 10000)
     {
       int v[N];
@@ -50,14 +55,12 @@ int main()
         scanf("%d", &value);
 
         v[i] = value;
+        printf("Value:%d", value);
       }
-      coutingSort(v, i);
 
       printf("\n");
     }
-
   }
 
-  while (N != 0);
   return 0;
 }
