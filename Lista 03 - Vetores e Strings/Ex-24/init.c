@@ -1,14 +1,4 @@
 #include <stdio.h>
-int oftenOccurs(int *elements, int el)
-{
-  int i, ocurrence = 0;
-  for (i = 0; elements[i] != -1; i++)
-  {
-    if (elements[i] == el)
-      ocurrence++;
-  }
-  return ocurrence;
-}
 int *ordena(int *nums, int qntd)
 {
   int i, j;
@@ -38,6 +28,7 @@ int *ordena(int *nums, int qntd)
 
   return nums;
 }
+
 int isElementInside(int *array, int el, int range)
 {
   int i;
@@ -57,36 +48,24 @@ int main()
   int *result;
   scanf("%d", &N);
 
-  if (N >= 1 && N <= 1000)
+  int v[N];
+  int printed[N];
+
+  for (i = 0; i < N; i++)
   {
-    int v[N];
+    scanf("%d", &value);
 
-    for (i = 0; i < N; i++)
-    {
-      scanf("%d", &value);
-
-      v[i] = value;
-    }
-    result = ordena(v, N);
-    int printed[N];
-    int excluded = 0;
-    for (i = 0; i < N; i++)
-    {
-      if (isElementInside(printed, result[i], N) == 0)
-      {
-
-        printed[i] = result[i];
-      }
-      else
-      {
-        excluded++;
-      }
-    }
-    result = ordena(printed, N - excluded);
-    for (i = 0; i < N; i++)
+    v[i] = value;
+  }
+  result = ordena(v, N);
+  for (i = 0; i < N; i++)
+  {
+    if (isElementInside(printed, result[i], N) == 0)
     {
       printf("%d\n", result[i]);
+      printed[i] = result[i];
     }
   }
+
   return 0;
 }
