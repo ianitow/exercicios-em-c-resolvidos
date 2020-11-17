@@ -25,8 +25,8 @@ void str_clean(char *str, char *elim)
 }
 int main()
 {
-  char str[256]; // string original
-  char clr[256]; // lista de caracteres indesejados
+  char str[257]; // string original
+  char clr[257]; // lista de caracteres indesejados
   scanf("%[^\n]", str);
   scanf("\n%[^\n]", clr);
   str_clean(str, clr);
