@@ -2,14 +2,17 @@
 #include <math.h>
 int main()
 {
-  int N, i;
-  double sum;
+  int N, i, j;
+  int max;
+
   scanf("%d", &N);
   if (N >= 2 && N <= 1000)
   {
     double coordsX[N];
     double coordsY[N];
     double coordsZ[N];
+    double max;
+    double sum;
 
     for (i = 0; i < N; i++)
     {
@@ -17,27 +20,31 @@ int main()
       scanf("%lf", &coordsY[i]);
       scanf("%lf", &coordsZ[i]);
     }
-    sum = coordsX[0];
-    for (i = 1; i < N; i++)
+    for (i = 0; i < N; i++)
     {
 
-      sum -= coordsX[i];
-    }
-    printf("%.2lf\n", fabs(sum));
-    sum = coordsY[0];
-    for (i = 1; i < N; i++)
-    {
+      if (i + 1 < N)
+      {
+        double sumX = fabs(coordsX[i + 1] - coordsX[i]);
+        double sumY = fabs(coordsY[i + 1] - coordsY[i]);
+        double sumZ = fabs(coordsZ[i + 1] - coordsZ[i]);
+        double maior = -1002;
+        if ((sumX >= sumY) && (sumX >= sumZ))
+        {
+          maior = sumX;
+        }
+        else if ((sumY >= sumX) && (sumY >= sumZ))
+        {
+          maior = sumY;
+        }
+        else if ((sumZ >= sumX) && (sumZ >= sumY))
 
-      sum -= coordsY[i];
+        {
+          maior = sumZ;
+        }
+        printf("%.2lf\n", maior);
+      }
     }
-    printf("%.2lf\n", sum);
-    sum = coordsZ[0];
-    for (i = 1; i < N; i++)
-    {
-
-      sum -= coordsZ[i];
     }
-    printf("%.2lf\n", fabs(sum));
-  }
   return 0;
 }
