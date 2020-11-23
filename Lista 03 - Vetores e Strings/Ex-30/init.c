@@ -55,7 +55,7 @@ void clearBufferInt(int *value, int range)
 
 int main()
 {
-  char stringComplete[200];
+  char stringComplete[2000];
 
   char firstPhrase[1000];
   char lastPhrase[1000];
@@ -65,14 +65,19 @@ int main()
   while (scanf("%[^\n]%*c", stringComplete) != EOF)
   {
     sum = 0;
+    clearBufferInt(vowelsFirstPhrase, 5);
+    clearBufferInt(vowelsLastPhrase, 5);
 
-    if (isValidPhrase(stringComplete) || strlen(stringComplete) > 3)
+    if (isValidPhrase(stringComplete))
     {
-      clearBufferInt(vowelsFirstPhrase, 5);
-      clearBufferInt(vowelsLastPhrase, 5);
       strcpy(firstPhrase, strtok(stringComplete, ";"));
       strcpy(lastPhrase, strtok(NULL, "\n"));
 
+      if (firstPhrase == NULL || lastPhrase == NULL)
+      {
+
+        break;
+      }
       numberVowels(firstPhrase, vowelsFirstPhrase);
       numberVowels(lastPhrase, vowelsLastPhrase);
 
