@@ -21,6 +21,7 @@
     "random": "c",
     "hash_map": "c",
     "algorithm": "c",
-    "limits": "c"
+    "limits": "c",
+    "type_traits": "c"
   }
 }

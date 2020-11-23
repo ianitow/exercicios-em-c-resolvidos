@@ -1,60 +1,58 @@
-#include <stdio.h>
 #include <math.h>
-void removeLowers(int *nums, int qntd, int range)
+#include <stdio.h>
+#include <stdlib.h>
+
+void getLowerNumbersInSequence(const char num[], int totalNumeros, int qntd_rest)
 {
-  int removeds[qntd];
-  int min;
-  int indice;
-  int i = 0;
+  char digitos[100000];
+  int apagar = totalNumeros - qntd_rest;
+  int i, j = 0;
 
-  while (qntd)
+  for (i = 0; i < totalNumeros; i++)
   {
-    min = pow(10, range);
-    indice = 0;
-    for (i = 0; i < range; i++)
-    {
 
-      if (nums[i] < min && nums[i] != -1)
-      {
-        min = nums[i];
-        indice = i;
-      }
+    while (j > 0 && num[i] > digitos[j - 1] && apagar > 0)
+    {
+      j--;
+      apagar--;
+      digitos[j] = '\0';
     }
-    nums[indice] = -1;
-    qntd--;
+    digitos[j] = num[i];
+    j++;
   }
-  for (i = 0; i < range; i++)
+  for (i = 0; i < qntd_rest; i++)
   {
-    if (nums[i] != -1)
-    {
-      printf("%d", nums[i]);
-    }
+    printf("%c", digitos[i]);
   }
   printf("\n");
 }
 int main()
 {
-  int totalNumeros, qntdRemover, i, numero;
-  int *result;
-  while (1)
+  char digitos[100000 + 1];
+  int i;
+  int totalNumeros;
+  int qntdRest;
+  do
   {
-    scanf("%d %d", &totalNumeros, &qntdRemover);
-    int v[totalNumeros];
-    if (totalNumeros == 0 && qntdRemover == 0)
+    scanf("%d %d", &totalNumeros, &qntdRest);
+    getchar();
+    if (totalNumeros == 0 && qntdRest == 0)
     {
       break;
     }
-    scanf("%d", &numero);
-    i = totalNumeros - 1;
-    while (numero != 0)
-    {
-      v[i] = numero % 10;
-      numero /= 10;
-      i--;
-    }
 
-    removeLowers(v, qntdRemover, totalNumeros);
-  }
+    for (i = 0; i < totalNumeros; i++)
+    {
+      scanf("%c", &digitos[i]);
+
+      if (digitos[i] == '\n')
+      {
+        digitos[i] = '\0';
+        break;
+      }
+    }
+    getLowerNumbersInSequence(digitos, totalNumeros, qntdRest);
+  } while ((totalNumeros != 0) && (qntdRest != 0));
 
   return 0;
 }
