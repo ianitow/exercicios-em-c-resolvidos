@@ -6,6 +6,7 @@ int main()
   //1 ≤ B ≤ E ≤ 12221
   int C, i, j, k, B, E;
   int aux, aux2;
+  char str[12221];
   scanf("%d", &C);
 
   for (i = 0; i < C; i++)
@@ -13,7 +14,7 @@ int main()
 
     scanf("%d %d", &B, &E);
 
-    if ((B >= 1 && B <= E) && (E >= B && E <= 12221))
+    if ((B >= 0 && B <= E) && (E >= B && E <= 12221))
     {
 
       for (j = B; j <= E; j++)
@@ -22,12 +23,10 @@ int main()
       }
       for (j = E; j >= B; j--)
       {
-        aux = j;
-        while (aux)
+        sprintf(str, "%d", j);
+        for (k = strlen(str) - 1; k >= 0; k--)
         {
-          aux2 = aux % 10;
-          aux = aux / 10;
-          printf(" %d", aux2);
+          printf("%c", str[k]);
         }
       }
       printf("\n");
