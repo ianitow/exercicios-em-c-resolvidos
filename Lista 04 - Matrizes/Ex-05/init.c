@@ -10,14 +10,27 @@ int main()
     int matriz[N][M];
     for (i = 0; i < N; i++)
     {
-      for (j = 0; j < M; j++)
+      matriz[i][0] = alt;
+      printf("%d", alt);
+      for (j = 1; j < M; j++)
       {
-        matriz[i][j] = alt;
-        printf("%d", alt);
+        int num;
+        if (matriz[i][j - 1] == 0)
+        {
+          num = 1;
+          printf("%d", num);
+        }
+        else
+        {
+          num = 0;
+          printf("%d", num);
+        }
+        matriz[i][j] = num;
+
         if (j + 1 == M)
           break;
-        alt = (alt == 0) ? 1 : 0;
       }
+      alt = (alt == 0) ? 1 : 0;
       printf("\n");
     }
   }
