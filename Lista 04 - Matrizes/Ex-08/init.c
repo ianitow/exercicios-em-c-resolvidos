@@ -1,10 +1,9 @@
 #include <stdio.h>
+#define MAX 100
 
-const int MAX = 100;
+int printBorder(int m[][MAX], int width, int height);
 
-int printBorder(int m[][100], int width, int height);
-
-int *paintBorder(int m[][100], int width, int height, int border, int value, int final[][100])
+int *paintBorder(int m[][MAX], int width, int height, int border, int value, int final[][100])
 {
   int i, j, k, l;
   if (border == 0)
@@ -12,7 +11,7 @@ int *paintBorder(int m[][100], int width, int height, int border, int value, int
   i = 0;
   while (i < border)
   {
-    for (j = 0; j <= height; j++)
+    for (j = 0; j < height; j++)
     {
       final[i][j] = value;
       final[j][i] = value;
@@ -22,20 +21,18 @@ int *paintBorder(int m[][100], int width, int height, int border, int value, int
     i++;
   }
 }
-int printBorder(int m[][100], int width, int height)
+int printBorder(int m[][MAX], int width, int height)
 {
   int i, j;
-  printf("P2\n%d %d\n255\n", width, height);
-  for (i = 0; i < height; i++)
+  printf("P2\n%d %d\n255\n", height, width);
+  for (i = 0; i < width; i++)
   {
-    for (j = 0; j < width; j++)
+    for (j = 0; j < height; j++)
     {
 
-      printf("%d", m[i][j]);
-      if (i != 0)
-      {
+      printf("%d", m[j][i]);
+      if (j + 1 < height)
         printf(" ");
-      }
     }
 
     printf("\n");
