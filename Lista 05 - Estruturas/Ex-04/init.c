@@ -13,20 +13,21 @@ typedef struct
 double calculateNorm(Vetor pontos)
 {
   double norm;
-  norm = pow(pontos.u, 2) + pow(pontos.x, 2) + pow(pontos.y, 2) + pow(pontos.z, 2);
-  return sqrtl(norm);
+  norm = sqrt(pow(pontos.u, 2) + pow(pontos.x, 2) + pow(pontos.y, 2) + pow(pontos.z, 2));
+  norm = (norm < 0 ? norm *= -1 : norm);
+  return norm;
 }
 
-void ordenaVetor(Vetor *pontos)
+void ordenaVetor(Vetor *pontos, int N)
 {
   int i, swapped = 0;
   Vetor aux;
   do
   {
     swapped = 0;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < N; i++)
     {
-      if (i + 1 < 4 && pontos[i].norma > pontos[i + 1].norma)
+      if (i + 1 < N && pontos[i].norma > pontos[i + 1].norma)
       {
         aux = pontos[i + 1];
         pontos[i + 1] = pontos[i];
@@ -47,10 +48,10 @@ int main()
   pontos = malloc(num * sizeof(Vetor));
   for (i = 0; i < num; i++)
   {
-    scanf("%lf %lf %lf %lf", &pontos[i].u, &pontos[i].x, &pontos[i].y, &pontos[i].z);
+    scanf("%lf%lf%lf%lf", &pontos[i].u, &pontos[i].x, &pontos[i].y, &pontos[i].z);
     pontos[i].norma = calculateNorm(pontos[i]);
   }
-  ordenaVetor(pontos);
+  ordenaVetor(pontos, num);
   for (i = 0; i < num; i++)
     printf("Vetor: (%.2lf, %.2lf, %.2lf, %.2lf) Norma: %.2lf\n", pontos[i].u, pontos[i].x, pontos[i].y, pontos[i].z, pontos[i].norma);
 
