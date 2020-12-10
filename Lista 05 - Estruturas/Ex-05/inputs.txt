@@ -1,0 +1,29 @@
+4
+298
+234.5
+Direito
+123
+150.00
+Eng. Eletrica
+452
+132.00
+Eng. Civil
+341
+120.00
+Farmacia
+5
+Joao Luiz
+298
+5
+Paula Lima
+452
+4
+Maria
+123
+6
+Luiz Andre
+341
+3
+Antonio Luiz
+341
+8
