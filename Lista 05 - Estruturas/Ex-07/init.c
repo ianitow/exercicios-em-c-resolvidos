@@ -38,6 +38,6 @@ int main()
       break;
     }
   }
-
+  free(pontos);
   return 0;
 }
