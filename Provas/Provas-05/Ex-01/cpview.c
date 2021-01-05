@@ -40,28 +40,14 @@ int main(int qntdArg, char **args)
 
       break;
     case 'v':
-      printf("[%.2lf,%.2lf]", (complexNumber->real), complexNumber->img);
+      printf("[%.2lf,%.2lf]", (complexNumber->real), complexNumber->img + 0.0);
       break;
     case 'a':
       printf("%.2lf", (floor(1000 * complexNumber->real) / 1000));
-      if (floor(1000 * complexNumber->img) / 1000 == 1)
+      if (floor(1000 * complexNumber->img) / 1000 > 0 || floor(1000 * complexNumber->img) / 1000 < 0)
       {
-        printf("+i");
+        printf("%+.2lfi", (floor(1000 * complexNumber->img) / 1000));
       }
-
-      else if (floor(1000 * complexNumber->img) / 1000 == -1)
-      {
-        printf("-i");
-      }
-      else if (floor(1000 * complexNumber->img) / 1000 > 1)
-      {
-        printf("+%.2lfi", complexNumber->img);
-      }
-      else if (floor(1000 * complexNumber->img) / 1000 < 0)
-      {
-        printf("%.2lfi", complexNumber->img);
-      }
-      break;
     default:
       break;
     }

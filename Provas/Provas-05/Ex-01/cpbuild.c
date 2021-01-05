@@ -40,13 +40,21 @@ int main(int qntdArg, char **args)
       sscanf(args[2], "[%lf,%lf]", &real, &img);
       break;
     case 'a':
-    default:
       //Para fazer a checagem de somente o termo 'i' estar especificado.
       if (strchr(args[2], 'i') != NULL)
       {
         img = 1;
       }
       sscanf(args[2], "%lf%lfi", &real, &img);
+      break;
+    default:
+      //Para fazer a checagem de somente o termo 'i' estar especificado.
+      if (strchr(args[1], 'i') != NULL)
+      {
+        img = 1;
+      }
+      sscanf(args[1], "%lf-%lfi", &real, &img);
+      sscanf(args[1], "%lf+%lfi", &real, &img);
       break;
     }
     complexNumber = createComplex(real, img);
